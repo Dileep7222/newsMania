@@ -4,7 +4,7 @@ import NewsItem from './NewsItem'
 const NewsBoard = ({category}) => {
     const [articles ,setArticle] = useState([])
     useEffect(() => {
-        let url =`https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=00f514e497ff45f8b00d175a3023ac83`
+        let url =`${import.meta.env.VITE_API_URL}=${category}&apiKey=${import.meta.env.VITE_API_KEY}`
         fetch(url)
         .then(responce=> responce.json())
         .then(data=>setArticle(data.articles))  
